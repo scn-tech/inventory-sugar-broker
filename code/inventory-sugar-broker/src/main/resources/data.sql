@@ -1,0 +1,1 @@
+INSERT INTO user_dtl(id, user_name, password) values(0, 'Admin', 'Admin123 ')
