@@ -14,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Horizontal Layouts - Forms | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Create Bill Page</title>
 
     <meta name="description" content="" />
 
@@ -66,16 +66,36 @@
                 <div class="col-xxl">
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Add New Factory</h5>
+                      <h5 class="mb-0">Create New Bill</h5>
                     </div>
                     <div class="card-body">
                       <form method="post" action="/save">
+                       <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Party Name</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class="bx bx-user"></i
+                              ></span>
+                              <input
+                              	required
+                              	name="partyName"
+                                type="text"
+                                class="form-control"
+                                id="basic-icon-default-fullname"
+                                placeholder="Enter party name"
+                                aria-label="Enter party name"
+                                aria-describedby="basic-icon-default-fullname2"
+                              />
+                            </div>
+                          </div>
+                          </div>
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Factory Name</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-factory" class="input-group-text"
-                                ><i class="bx bx-user"></i
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class="bx bx-buildings"></i
                               ></span>
                               <input
                               	required
@@ -85,124 +105,86 @@
                                 id="basic-icon-default-fullname"
                                 placeholder="Enter factory name"
                                 aria-label="Enter Alias name"
-                                aria-describedby="basic-icon-default-factory"
-                              />
-                            </div>
-                          </div>
-                          </div>
-                          <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Alias Name</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-fullname2" class="input-group-text"
-                                ><i class="bx bx-user"></i
-                              ></span>
-                              <input
-                                name="aliasName"
-                                type="text"
-                                class="form-control"
-                                id="basic-icon-default-fullname"
-                                placeholder="Enter alias name"
-                                aria-label="Enter alias name"
                                 aria-describedby="basic-icon-default-fullname2"
                               />
                             </div>
                           </div>
-               			  </div>
+                          </div>
+                          
+                          <div class="row mb-3">
+                        <label for="exampleFormControlSelect1"  class="col-sm-2 col-form-label" >Season</label>
+                        <div class="col-sm-3">
+                        <div class="input-group input-group-merge">
+                       
+                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                       
+                          <option selected>Select Season</option>
+                          <option value="1">2017-2018</option>
+                          <option value="2">2018-2019</option>
+                          <option value="3">2019-2020</option>
+                          <option value="2">2020-2021</option>
+                          <option value="3">2021-2022</option>
+                          <option value="3">2022-2023</option>
+                        </select>
+                        </div>
+                         </div>
+                      </div>
+                   
+                         <div class="row mb-3">
+                        <label for="exampleFormControlSelect2"  class="col-sm-2 col-form-label" >Grade</label>
+                        <div class="col-sm-3">
+                        <div class="input-group input-group-merge">
+                       
+                        <select class="form-select" id="exampleFormControlSelect2" aria-label="Default select example">
+                       
+                          <option selected>Select Grade</option>
+                          <option value="1">S/30</option>
+                          <option value="2">SUPER S/30</option>
+                          <option value="3">M/30</option>
+                          <option value="2">L/30</option>
+                        </select>
+                        </div>
+                         </div>
+                      </div>
+                      
+                       
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Address</label>
-                          <div class="col-sm-10">
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Quantity(in Quintal)</label>
+                          <div class="col-sm-3">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-company2" class="input-group-text"
-                                ><i class="bx bx-buildings"></i
-                              ></span>
+                              
                               <input
                              	required
                              	name="factoryAddress"
                                 type="text"
                                 id="basic-icon-default-company"
                                 class="form-control"
-                                placeholder="Enter address details"
-                                aria-label="Enter address details"
+                                placeholder="Enter quantity in quintal"
+                                aria-label="Enter quantity in quintal"
                                 aria-describedby="basic-icon-default-company2"
                               />
                             </div>
                           </div>
                         </div>
+                      
                         <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">GST No</label>
-                          <div class="col-sm-10">
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Rate</label>
+                          <div class="col-sm-3">
                             <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="###"></i
-                              ></span>
+                              
                               <input
-                              	name="factoryGstNo"
+                             	required
+                             	name="factoryAddress"
                                 type="text"
-                                id="basic-icon-default-phone"
-                                class="form-control phone-mask"
-                                placeholder="Enter GST No"
-                                aria-label="Enter GST No"
-                                aria-describedby="basic-icon-default-phone2"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-email">Email Id</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                              <input
-                              name="factoryEmailId"
-                                type="text"
-                                id="basic-icon-default-email"
+                                id="basic-icon-default-company"
                                 class="form-control"
-                                placeholder="abc.xyz"
-                                aria-label="abc.xyz"
-                                aria-describedby="basic-icon-default-email2"
-                              />
-                              <!-- <span id="basic-icon-default-email2" class="input-group-text">@gmail.com</span> -->
-                            </div>
-                            <div class="form-text">You can use letters, numbers & periods</div>
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-phone">Phone No</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="bx bx-phone"></i
-                              ></span>
-                              <input
-                              name="factoryPhoneNo"
-                                type="text"
-                                id="basic-icon-default-phone"
-                                class="form-control phone-mask"
-                                placeholder="658 799 8941"
-                                aria-label="658 799 8941"
-                                aria-describedby="basic-icon-default-phone2"
+                                placeholder="Rate"
+                                aria-label="Rate"
+                                aria-describedby="basic-icon-default-company2"
                               />
                             </div>
                           </div>
                         </div>
-                       <!--  <div class="row mb-3">
-                          <label class="col-sm-2 form-label" for="basic-icon-default-message">Message</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-message2" class="input-group-text"
-                                ><i class="bx bx-comment"></i
-                              ></span>
-                              <textarea
-                                id="basic-icon-default-message"
-                                class="form-control"
-                                placeholder="Hi, Do you have a moment to talk Joe?"
-                                aria-label="Hi, Do you have a moment to talk Joe?"
-                                aria-describedby="basic-icon-default-message2"
-                              ></textarea>
-                            </div>
-                          </div>
-                        </div> -->
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">SAVE</button>

@@ -2,9 +2,6 @@ package com.inventory.controller;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,29 +15,27 @@ import com.inventory.service.FactoryService;
 
 @Slf4j
 @Controller
-public class FactoryController {
+public class CreateBillController {
 
-	@Autowired
-	private FactoryService factoryService;
 	
-    @GetMapping("/new-factory")
+    @GetMapping("/new-bill")
     public String redirectToCreateFactory() {
     	
-        return "create-factory";
+        return "create-bill";
     }
     
-    @PostMapping("/save")
-    public String createFactory(@ModelAttribute Factory factory, Model model) {
+    @PostMapping("/save-bill")
+    public String createStock(@ModelAttribute Factory factory, Model model) {
     	System.out.println("inside createFactory Controller" + factory);
     	model.addAttribute("message", "Factory Added Successfully..!!!");
-    	Factory f = factoryService.createFactory(factory);
+    	
     	return "redirect:/new-factory?id=";
     	
     }
 
-    @GetMapping("/view-factories")
+    @GetMapping("/view-bills")
     public String redirectToViewFactory() {
-        return "view-factory";
-    }  
-    
+        return "view-bill";
+    }
+
 }
