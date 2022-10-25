@@ -1,14 +1,13 @@
 
 package com.inventory.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.inventory.entity.Factory;
 import com.inventory.repository.FactoryRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j 
@@ -24,5 +23,9 @@ public class FactoryService {
 
 	public List<Factory>  getListOfFactory(){
 		return factoryRepository.findAll();
+	}
+
+	public List<Factory> getByFlag(boolean flag) {
+		return factoryRepository.findByDeletedFlag(flag);
 	}
 }

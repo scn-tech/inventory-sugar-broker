@@ -21,4 +21,8 @@ public class StockService {
 		return stockRepository.save(stock);
 	}
 
+	public void updateStockQty(int stockId, int qty) {
+		stockRepository.updateStockQuantity(stockId, qty);
+	}
+
 }

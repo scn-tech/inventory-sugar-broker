@@ -1,5 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<%@page import="java.util.List" import="com.inventory.entity.Factory"%>
+<%@page import="java.util.*" import="com.inventory.entity.Factory"%>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr"
 	data-theme="theme-default" data-assets-path="../assets/"
 	data-template="vertical-menu-template-free">
@@ -65,51 +69,50 @@
 										<h5 class="mb-0">Book New Stock</h5>
 									</div>
 									<div class="card-body">
+
+                                    <c:if test="${requestScope.code eq '401'}">
+                                       <div class="alert alert-danger alert-dismissible" role="alert">
+                                           Fail to add Stock.
+                                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                       </div>
+                                    </c:if>
+
+                                    <c:if test="${param.code eq '201'}">
+                                       <div class="alert alert-success alert-dismissible" role="alert">
+                                           Stock Added Successfully..!!!
+                                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                       </div>
+                                    </c:if>
+
 										<form method="post" action="/save-stock">
 
 
-											<div class="row mb-3">
-												<label class="col-sm-2 col-form-label"
-													for="basic-icon-default-fullname">Factory Name</label>
-												<div class="col-sm-10">
-													<div class="input-group input-group-merge">
-														<span id="basic-icon-default-fullname2"
-															class="input-group-text"><i
-															class="bx bx-buildings"></i></span>
+                                            <div class="row mb-3">
+                                                    <label for="seasonSelect" class="col-sm-2 col-form-label">Factory Name</label>
+                                                <div class="col-sm-3">
+                                                    <div class="input-group input-group-merge">
+                                                    <input
+                                                      name="factoryName"
+                                                      class="form-control"
+                                                      list="datalistOptions"
+                                                      id="factoryNameList"
+                                                      placeholder="Type to search..."
+                                                    />
+                                                    <datalist id="datalistOptions">
 
-														<datalist id="mylist">
-															<%
-																 Object o = request.getAttribute("factoryList");
-															List<Factory> list = (List) o;
-																for (Factory f : list) {
-															%>
-
-															<option data-value="<%=f.getId()%>" >
-																<%=f.getFactoryName() %>
-															</option>
-															<%
-																}
-															%>
-														</datalist>
-										<!-- <input type="text"
-										  list="mylist"
-										  id="country" name="country"
-										  size="50"
-										  autocomplete="off" /> -->
-														 <input
-                              	required
-                              	name="factoryName"
-                                type="text"
-                                list="mylist"
-                                class="form-control"
-                                id="basic-icon-default-fullname"
-                                placeholder="Enter factory name"
-                                aria-label="Enter Alias name"
-                                aria-describedby="basic-icon-default-fullname2"
-                              />
-													</div>
-												</div>
-											</div>
+                                                        <%
+                                                            List<Factory> factoryList = (List) request.getAttribute("factoryList");
+                                                            for (Factory f : factoryList) {
+                                                        %>
+                                                        <option data-value="<%=f.getId()%>"><%=f.getFactoryName()%></option>
+                                                        <%
+                                                            }
+                                                        %>
+                                                    </datalist>
+                                                    <input id="factoryId" type="hidden" name="factoryId.id"/>
+                                             </div>
+                                             </div>
+                                             </div>
 
 											<div class="row mb-3">
 												<label for="seasonSelect" class="col-sm-2 col-form-label">Season</label>
@@ -120,9 +123,15 @@
 															aria-label="Default select example" name="season">
 
 															<option selected>Select Season</option>
-															<option value="2017-2018">2017-2018</option>
-															<option value="2018-2019">2018-2019</option>
-															<option value="2019-2020">2019-2020</option>
+
+															<%
+                                                                Set<String> seasonList = (Set) request.getAttribute("seasonslist");
+                                                                for (String season : seasonList) {
+                                                            %>
+                                                            <option value="<%=season%>"><%=season%></option>
+                                                            <%
+                                                                }
+                                                            %>
 
 														</select>
 													</div>
@@ -154,10 +163,15 @@
 															aria-label="Default select example" name="grade">
 
 															<option selected>Select Grade</option>
-															<option value="S/30">S/30</option>
-															<option value="SUPER S/30">SUPER S/30</option>
-															<option value="M/30">M/30</option>
-															<option value="L/30">L/30</option>
+
+															<%
+                                                                Set<String> gradelist = (Set) request.getAttribute("gradelist");
+                                                                for (String grade : gradelist) {
+                                                            %>
+                                                            <option value="<%=grade%>"><%=grade%></option>
+                                                            <%
+                                                                }
+                                                            %>
 														</select>
 													</div>
 												</div>
@@ -258,5 +272,27 @@
 	<!-- Common JS -->
 	<%@ include file="common-js.jsp"%>
 	<!-- / Common JS -->
+
+	<script type="text/javascript">
+	    document.querySelector('#factoryNameList').addEventListener('change', function(e) {
+            var input = e.target,
+                list = input.getAttribute('list'),
+                options = document.querySelectorAll('#' + list + ' option'),
+                hiddenInput = document.getElementById("factoryId"),
+                inputValue = input.value;
+
+            hiddenInput.value = inputValue;
+
+            for(var i = 0; i < options.length; i++) {
+                var option = options[i];
+
+                if(option.innerText === inputValue) {
+                    hiddenInput.value = option.getAttribute('data-value');
+                    break;
+                }
+            }
+        });
+	</script>
+
 </body>
 </html>

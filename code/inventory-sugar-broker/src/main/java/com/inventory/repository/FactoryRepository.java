@@ -6,7 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import com.inventory.entity.Factory;
 
+import java.util.List;
+
 @Repository 
-public interface FactoryRepository extends JpaRepository<Factory,Integer> {  
+public interface FactoryRepository extends JpaRepository<Factory,Integer> {
+
+    public List<Factory> findByDeletedFlag(boolean deletedFlag);
 }
 	

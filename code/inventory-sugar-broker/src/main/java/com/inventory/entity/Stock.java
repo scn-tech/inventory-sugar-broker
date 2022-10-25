@@ -27,7 +27,10 @@ public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer factoryId;
+
+    @ManyToOne
+    @JoinColumn(name = "factoryId")
+    private Factory factoryId;
     private String factoryName;
      private String season;
     private String tenderDate;
@@ -35,8 +38,8 @@ public class Stock {
     private String grade;
     private String liftingDate;
     private Integer purchaseQuantity;
-    private Integer soldQuantity;
-    private Integer rate;
+    private Integer soldQuantity = 0;
+    private Double rate;
     private String notes;
     
 	@CreatedBy
