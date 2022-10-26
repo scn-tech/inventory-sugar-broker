@@ -3,18 +3,6 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
   lang="en"
   class="light-style customizer-hide"
@@ -30,7 +18,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Manoj Sugar Inventory Login Page</title>
 
     <meta name="description" content="" />
 
@@ -134,12 +122,12 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="app-brand-text demo text-body fw-bolder">Manoj Sugar</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Welcome to Sneat! ðŸ‘‹</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+             <!--  <h4 class="mb-2">Welcome to Inventory Billing‘‹</h4> -->
+              <p class="mb-4">Please sign-in to your account</p>
 
             <c:if test="${requestScope.code eq '401'}">
                <div class="alert alert-danger alert-dismissible" role="alert">
@@ -159,13 +147,13 @@
 
               <form id="formAuthentication" class="mb-3" action="auth-user" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
+                  <label for="email" class="form-label">Username</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
                     name="userName"
-                    placeholder="Enter your email or username"
+                    placeholder="Enter your username"
                     autofocus
                   />
                 </div>
@@ -199,12 +187,12 @@
                 </div>
               </form>
 
-              <p class="text-center">
+             <!--  <p class="text-center">
                 <span>New on our platform?</span>
                 <a href="auth-register-basic.html">
                   <span>Create an account</span>
                 </a>
-              </p>
+              </p> -->
             </div>
           </div>
           <!-- /Register -->
@@ -214,14 +202,14 @@
 
     <!-- / Content -->
 
-    <div class="buy-now">
+   <!--  <div class="buy-now">
       <a
         href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
         target="_blank"
         class="btn btn-danger btn-buy-now"
         >Upgrade to Pro</a
       >
-    </div>
+    </div> -->
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

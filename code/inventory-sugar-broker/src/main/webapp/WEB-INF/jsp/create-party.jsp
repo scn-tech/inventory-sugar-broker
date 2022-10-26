@@ -66,49 +66,31 @@
                 <div class="col-xxl">
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Add New Factory</h5>
+                      <h5 class="mb-0">Add Party</h5>
                     </div>
                     <div class="card-body">
-                      <form method="post" action="/save">
+                      <form method="post" action="/save-party">
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Factory Name</label>
-                          <div class="col-sm-10">
-                            <div class="input-group input-group-merge">
-                              <span id="basic-icon-default-factory" class="input-group-text"
-                                ><i class="bx bx-user"></i
-                              ></span>
-                              <input
-                              	required
-                              	name="factoryName"
-                                type="text"
-                                class="form-control"
-                                id="basic-icon-default-fullname"
-                                placeholder="Enter factory name"
-                                aria-label="Enter Alias name"
-                                aria-describedby="basic-icon-default-factory"
-                              />
-                            </div>
-                          </div>
-                          </div>
-                          <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Alias Name</label>
+                          <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">Party Name</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                               <span id="basic-icon-default-fullname2" class="input-group-text"
                                 ><i class="bx bx-user"></i
                               ></span>
                               <input
-                                name="aliasName"
+                              	required
+                              	name="partyName"
                                 type="text"
                                 class="form-control"
                                 id="basic-icon-default-fullname"
-                                placeholder="Enter alias name"
-                                aria-label="Enter alias name"
+                                placeholder="Enter factory name"
+                                aria-label="Enter Alias name"
                                 aria-describedby="basic-icon-default-fullname2"
                               />
                             </div>
                           </div>
-               			  </div>
+                          </div>
+                         
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Address</label>
                           <div class="col-sm-10">
@@ -118,7 +100,7 @@
                               ></span>
                               <input
                              	required
-                             	name="factoryAddress"
+                             	name="partyAddress"
                                 type="text"
                                 id="basic-icon-default-company"
                                 class="form-control"
@@ -134,10 +116,10 @@
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
                               <span id="basic-icon-default-phone2" class="input-group-text"
-                                ><i class="###"></i
+                                ><i class="bx bx-phone"></i
                               ></span>
                               <input
-                              	name="factoryGstNo"
+                              	name="partyGstNo"
                                 type="text"
                                 id="basic-icon-default-phone"
                                 class="form-control phone-mask"
@@ -154,7 +136,7 @@
                             <div class="input-group input-group-merge">
                               <span class="input-group-text"><i class="bx bx-envelope"></i></span>
                               <input
-                              name="factoryEmailId"
+                              name="partyEmailId"
                                 type="text"
                                 id="basic-icon-default-email"
                                 class="form-control"
@@ -162,7 +144,7 @@
                                 aria-label="abc.xyz"
                                 aria-describedby="basic-icon-default-email2"
                               />
-                              <!-- <span id="basic-icon-default-email2" class="input-group-text">@gmail.com</span> -->
+                            <!--   <span id="basic-icon-default-email2" class="input-group-text">@gmail.com</span> -->
                             </div>
                             <div class="form-text">You can use letters, numbers & periods</div>
                           </div>
@@ -175,7 +157,7 @@
                                 ><i class="bx bx-phone"></i
                               ></span>
                               <input
-                              name="factoryPhoneNo"
+                              name="partyPhoneNo"
                                 type="text"
                                 id="basic-icon-default-phone"
                                 class="form-control phone-mask"

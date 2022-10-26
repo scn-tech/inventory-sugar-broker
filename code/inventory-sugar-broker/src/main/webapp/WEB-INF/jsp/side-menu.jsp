@@ -57,7 +57,7 @@
           </g>
         </svg>
       </span>
-      <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+      <span class="app-brand-text demo menu-text fw-bolder ms-2">Manoj Sugar</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -107,18 +107,58 @@
 
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="#" class="menu-link">
+          <a href="new-party" class="menu-link">
             <div data-i18n="Without menu">Create Party</div>
           </a>
         </li>
         <li class="menu-item">
-          <a href="#" class="menu-link">
+          <a href="view-parties" class="menu-link">
             <div data-i18n="Without navbar">View Parties</div>
           </a>
         </li>
       </ul>
     </li>
      <!-- Factory -->
-  </ul>
+     <!-- Stock -->
+    <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-layout"></i>
+        <div data-i18n="Layouts">Stock</div>
+      </a>
+
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="new-stock" class="menu-link">
+            <div data-i18n="Without menu">Book Stock</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="sell-stock" class="menu-link">
+            <div data-i18n="Without navbar">Sell Stock</div>
+          </a>
+        </li>
+        </ul>
+    </li>
+        <!-- Stock -->
+        <!-- Billing -->
+    <li class="menu-item">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-layout"></i>
+        <div data-i18n="Layouts">Bill</div>
+      </a>
+
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="new-bill" class="menu-link">
+            <div data-i18n="Without menu">Create Bill</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="sell-stock" class="menu-link">
+            <div data-i18n="Without navbar">View Bill</div>
+          </a>
+        </li>
+        </ul>
+    </li>
 </aside>
 <!-- / Menu -->
