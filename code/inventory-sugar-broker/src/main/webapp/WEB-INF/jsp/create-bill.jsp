@@ -283,6 +283,7 @@
     <!-- / Common JS -->
 
     <script type="text/javascript">
+            //get Party Id based on Party Name selection
     	    document.querySelector('#partyNameList').addEventListener('change', function(e) {
     	        var input = e.target,
                     list = input.getAttribute('list'),
@@ -302,6 +303,7 @@
                 }
             });
 
+            //get Factory Id based on Factory Name selection
             document.querySelector('#factoryNameList').addEventListener('change', function(e) {
                 clearContent();
                 var input = e.target,
