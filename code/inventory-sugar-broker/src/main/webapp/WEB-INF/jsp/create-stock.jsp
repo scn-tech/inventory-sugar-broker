@@ -3,7 +3,7 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<%@page import="java.util.*" import="com.inventory.entity.Factory"%>
+<%@page import="java.util.*" import="com.inventory.entity.*"%>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr"
 	data-theme="theme-default" data-assets-path="../assets/"
 	data-template="vertical-menu-template-free">
@@ -88,31 +88,58 @@
 
 
                                             <div class="row mb-3">
-                                                    <label for="seasonSelect" class="col-sm-2 col-form-label">Factory Name</label>
-                                                <div class="col-sm-3">
+                                            <label for="seasonSelect" class="col-sm-2 col-form-label">Factory Name</label>
+                                                <div class="col-sm-8">
                                                     <div class="input-group input-group-merge">
-                                                    <input
-                                                      name="factoryName"
-                                                      class="form-control"
-                                                      list="datalistOptions"
-                                                      id="factoryNameList"
-                                                      placeholder="Type to search..."
-                                                    />
-                                                    <datalist id="datalistOptions">
+                                                        <input
+                                                          name="factoryName"
+                                                          class="form-control"
+                                                          list="datalistOptions"
+                                                          id="factoryNameList"
+                                                          placeholder="Type to search..."
+                                                        />
+                                                        <datalist id="datalistOptions">
 
-                                                        <%
-                                                            List<Factory> factoryList = (List) request.getAttribute("factoryList");
-                                                            for (Factory f : factoryList) {
-                                                        %>
-                                                        <option data-value="<%=f.getId()%>"><%=f.getFactoryName()%></option>
-                                                        <%
-                                                            }
-                                                        %>
-                                                    </datalist>
-                                                    <input id="factoryId" type="hidden" name="factoryId.id"/>
+                                                            <%
+                                                                List<Factory> factoryList = (List) request.getAttribute("factoryList");
+                                                                for (Factory f : factoryList) {
+                                                            %>
+                                                            <option data-value="<%=f.getId()%>"><%=f.getFactoryName()%></option>
+                                                            <%
+                                                                }
+                                                            %>
+                                                        </datalist>
+                                                        <input id="factoryId" type="hidden" name="factoryId.id"/>
+                                                    </div>
+                                                </div>
                                              </div>
-                                             </div>
-                                             </div>
+
+                                             <div class="row mb-3">
+                                               <label for="seasonSelect" class="col-sm-2 col-form-label">Party Name</label>
+                                                   <div class="col-sm-8">
+                                                       <div class="input-group input-group-merge">
+                                                           <input
+                                                             name="partyName"
+                                                             class="form-control"
+                                                             list="partyNameOptions"
+                                                             id="partyNameList"
+                                                             placeholder="Type to search..."
+                                                           />
+                                                           <datalist id="partyNameOptions">
+
+                                                               <%
+                                                                   List<Party> partiesList = (List) request.getAttribute("partiesList");
+                                                                   for (Party p : partiesList) {
+                                                               %>
+                                                               <option data-value="<%=p.getId()%>"><%=p.getPartyName()%></option>
+                                                               <%
+                                                                   }
+                                                               %>
+                                                           </datalist>
+                                                           <input id="partyId" type="hidden" name="partyId.id"/>
+                                                       </div>
+                                                </div>
+                                           </div>
 
 											<div class="row mb-3">
 												<label for="seasonSelect" class="col-sm-2 col-form-label">Season</label>
@@ -202,6 +229,19 @@
 												</div>
 											</div>
 											<div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label"
+                                                    for="basic-icon-default-company">Mill Rate</label>
+                                                <div class="col-sm-3">
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input required name="millRate" type="number"
+                                                            id="basic-icon-default-company" class="form-control"
+                                                            placeholder="Mill Rate" aria-label="MillRate"
+                                                            aria-describedby="basic-icon-default-company2" />
+                                                    </div>
+                                                </div>
+                                            </div>
+											<div class="row mb-3">
 												<label class="col-sm-2 col-form-label"
 													for="basic-icon-default-company">Rate</label>
 												<div class="col-sm-3">
@@ -274,6 +314,27 @@
 	<!-- / Common JS -->
 
 	<script type="text/javascript">
+        //get Party Id based on Party Name selection
+        document.querySelector('#partyNameList').addEventListener('change', function(e) {
+            var input = e.target,
+                list = input.getAttribute('list'),
+                options = document.querySelectorAll('#' + list + ' option'),
+                hiddenInput = document.getElementById("partyId"),
+                inputValue = input.value;
+
+            hiddenInput.value = inputValue;
+
+            for(var i = 0; i < options.length; i++) {
+                var option = options[i];
+
+                if(option.innerText === inputValue) {
+                    hiddenInput.value = option.getAttribute('data-value');
+                    break;
+                }
+            }
+        });
+
+
 	    document.querySelector('#factoryNameList').addEventListener('change', function(e) {
             var input = e.target,
                 list = input.getAttribute('list'),

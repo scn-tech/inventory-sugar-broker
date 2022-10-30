@@ -1,7 +1,6 @@
 package com.inventory.controller;
 
 import com.inventory.entity.Bill;
-import com.inventory.entity.Factory;
 import com.inventory.service.BillService;
 import com.inventory.service.FactoryService;
 import com.inventory.service.PartyService;
@@ -9,7 +8,6 @@ import com.inventory.service.PorpertyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,8 +41,9 @@ public class BillController  extends PorpertyService {
     @PostMapping("/save-bill")
     public String createStock(@ModelAttribute Bill bill) {
     	System.out.println("inside createBill Controller" + bill);
-        int code = billService.save(bill)?201:500;
-    	return "redirect:/new-bill?code="+code;
+        bill = billService.save(bill);
+        int code = bill.getId()>0?201:500;
+    	return "redirect:/new-bill?code="+code+"&bid="+bill.getId();
     }
 
     @GetMapping("/view-bills")

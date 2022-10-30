@@ -84,7 +84,7 @@
 
                         <c:if test="${param.code eq '201'}">
                            <div class="alert alert-success alert-dismissible" role="alert">
-                               Bill Added Successfully..!!!
+                               <strong>Bill Id [${param.bid}] </strong> Added Successfully..!!!
                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                            </div>
                         </c:if>
@@ -180,10 +180,12 @@
                                       <thead>
                                         <tr>
                                           <th>Select</th>
+                                          <th>Vendor</th>
                                           <th>Grade</th>
                                           <th>Purchase Quantity</th>
                                           <th>Available Quantity</th>
                                           <th>Purchase Rate</th>
+                                          <th>Mill Rate</th>
                                         </tr>
                                       </thead>
                                       <tbody class="table-border-bottom-0" id="availablestockbody">
@@ -329,18 +331,19 @@
               var backendurl = "get-factory-stock/"+$('#factoryId').val() + "/" + $('#seasonSelect').val()
                 $.ajax({url: backendurl, success: function(result){
                   $("#availablestockbody").empty();
-                  var emptyrow = "<tr><td colspan='5'>No Record available</td></tr>";
+                  var emptyrow = "<tr><td colspan='7'>No Record available</td></tr>";
                     if(result.length <= 0) {
                         $("#availablestockbody").append(emptyrow);
                     }
                   $.each(result , function(index, item) {
-
                       row = "<tr>"+
                       "<td><input class='bookStockRadio' type='radio' name='billItems[0].stock.id' value='"+item.id+"'/></td>"+
+                      "<td>"+ ((item.partyId == null) ? ""  :  item.partyId.partyName) +"</td>"+
                       "<td>"+ item.grade + "</td>"+
                       "<td>"+ item.purchaseQuantity + "</td>"+
                       "<td>"+ (parseInt(item.purchaseQuantity) - parseInt(item.soldQuantity)) + "</td>"+
                       "<td>"+ item.rate + "</td>"+
+                      "<td>"+ item.millRate + "</td>"+
                       "</tr>";
 
                       $("#availablestockbody").append(row);
