@@ -40,8 +40,7 @@ public class BillController  extends PorpertyService {
     
     @PostMapping("/save-bill")
     public String createStock(@ModelAttribute Bill bill) {
-    	System.out.println("inside createBill Controller" + bill);
-        bill = billService.save(bill);
+    	bill = billService.save(bill);
         int code = bill.getId()>0?201:500;
     	return "redirect:/new-bill?code="+code+"&bid="+bill.getId();
     }
