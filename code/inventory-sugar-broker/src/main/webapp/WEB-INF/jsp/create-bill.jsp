@@ -84,12 +84,12 @@
 
                         <c:if test="${param.code eq '201'}">
                            <div class="alert alert-success alert-dismissible" role="alert">
-                               Bill Added Successfully..!!!
+                               <strong>Bill Id [${param.bid}] </strong> Added Successfully..!!!
                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                            </div>
                         </c:if>
 
-                      <form method="POST" action="save-bill">
+                      <form method="POST" action="save-bill" id="save-bill-form">
 
                         <div class="row mb-3">
                           <label for="seasonSelect" class="col-sm-2 col-form-label">Party Name</label>
@@ -180,10 +180,12 @@
                                       <thead>
                                         <tr>
                                           <th>Select</th>
+                                          <th>Vendor</th>
                                           <th>Grade</th>
                                           <th>Purchase Quantity</th>
                                           <th>Available Quantity</th>
                                           <th>Purchase Rate</th>
+                                          <th>Mill Rate</th>
                                         </tr>
                                       </thead>
                                       <tbody class="table-border-bottom-0" id="availablestockbody">
@@ -238,7 +240,7 @@
                         </div>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">SAVE</button>
+                            <button id="save-bill-btn" type="submit" class="btn btn-primary">SAVE</button>
                           </div>
                         </div>
 
@@ -252,6 +254,28 @@
               </div>
             </div>
             <!-- / Content -->
+
+            <!--Confirmation Box Starts-->
+            <div class="modal fade" id="SaveConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Please Confirm </h5>
+                            <button id="SaveConfirmationCloseSymbol" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">x</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                           <h4>Are you sure do you want to save Details?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="SaveConfirmationSaveBtn" class="btn btn-primary"> Yes </button>
+                            <button type="button" id="SaveConfirmationCloseBtn" class="btn btn-secondary" data-dismiss="modal"> No </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Confirmation Box Ends-->
 
             <!-- Common JS -->
                 <%@ include file="footer.jsp" %>
@@ -329,18 +353,19 @@
               var backendurl = "get-factory-stock/"+$('#factoryId').val() + "/" + $('#seasonSelect').val()
                 $.ajax({url: backendurl, success: function(result){
                   $("#availablestockbody").empty();
-                  var emptyrow = "<tr><td colspan='5'>No Record available</td></tr>";
+                  var emptyrow = "<tr><td colspan='7'>No Record available</td></tr>";
                     if(result.length <= 0) {
                         $("#availablestockbody").append(emptyrow);
                     }
                   $.each(result , function(index, item) {
-
                       row = "<tr>"+
                       "<td><input class='bookStockRadio' type='radio' name='billItems[0].stock.id' value='"+item.id+"'/></td>"+
+                      "<td>"+ ((item.partyId == null) ? ""  :  item.partyId.partyName) +"</td>"+
                       "<td>"+ item.grade + "</td>"+
                       "<td>"+ item.purchaseQuantity + "</td>"+
                       "<td>"+ (parseInt(item.purchaseQuantity) - parseInt(item.soldQuantity)) + "</td>"+
                       "<td>"+ item.rate + "</td>"+
+                      "<td>"+ item.millRate + "</td>"+
                       "</tr>";
 
                       $("#availablestockbody").append(row);
@@ -356,7 +381,6 @@
             var purchaseRate = $(this).closest("tr").find('td:eq(4)').text();
             $("#billGrade").val(grade);
             $("#billPurchaseRate").val(purchaseRate);
-            alert(purchaseRate + " : Stock Selected : " + grade);
         });
 
         // clear stock table and season selectbox
@@ -364,7 +388,37 @@
             $('#seasonSelect').prop('selectedIndex',0);
             $("#availablestockbody").empty();
         }
-    	</script>
 
+        // confirmation Box
+        var modalConfirm = function(callback) {
+
+            $("#save-bill-btn").on("click", function(e) {
+                e.preventDefault();
+                $("#SaveConfirmation").modal('show');
+            });
+
+            $("#SaveConfirmationSaveBtn").on("click", function() {
+                callback(true);
+                $("#SaveConfirmation").modal('hide');
+            });
+
+            $("#SaveConfirmationCloseBtn").on("click", function() {
+                //callback(false);
+                $("#SaveConfirmation").modal('hide');
+            });
+
+
+            $("#SaveConfirmationCloseSymbol").on("click", function() {
+                //callback(false);
+                $("#SaveConfirmation").modal('hide');
+            });
+        };
+
+        modalConfirm(function(confirm) {
+            if (confirm) {
+                $("#save-bill-form").submit();
+            }
+        });
+    	</script>
   </body>
 </html>

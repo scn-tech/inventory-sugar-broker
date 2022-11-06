@@ -15,7 +15,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Horizontal Layouts - Forms | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>View Factory</title>
 
     <meta name="description" content="" />
 
@@ -63,227 +63,92 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Striped Rows -->
                 <div class="card">
-                  <h5 class="card-header">Striped rows</h5>
+                  <h5 class="card-header">Factory List</h5>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>Project</th>
-                          <th>Client</th>
-                          <th>Users</th>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>Contact</th>
+                          <th>GST No.</th>
                           <th>Status</th>
-                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody class="table-border-bottom-0">
-                        <tr>
-                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                          <td>Albert Cook</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                            </ul>
-                          </td>
-                          <td><span class="badge bg-label-primary me-1">Active</span></td>
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>React Project</strong></td>
-                          <td>Barry Hunter</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                            </ul>
-                          </td>
-                          <td><span class="badge bg-label-success me-1">Completed</span></td>
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>VueJs Project</strong></td>
-                          <td>Trevor Baker</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                            </ul>
-                          </td>
-                          <td><span class="badge bg-label-info me-1">Scheduled</span></td>
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bootstrap Project</strong>
-                          </td>
-                          <td>Jerry Milton</td>
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Lilian Fuller"
-                              >
-                                <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Sophia Wilkerson"
-                              >
-                                <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xs pull-up"
-                                title="Christina Parker"
-                              >
-                                <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                              </li>
-                            </ul>
-                          </td>
-                          <td><span class="badge bg-label-warning me-1">Pending</span></td>
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
+                      <c:choose>
+                              <c:when test="${data.size() > 0 }">
+                                  <c:forEach var="emp" items="${data}">
+                                      <tr>
+                                          <td>${emp.factoryName}</td>
+                                          <td>${emp.factoryAddress}</td>
+                                          <td>${emp.factoryPhoneNo}</td>
+                                          <td>${emp.factoryGstNo}</td>
+                                          <td>  ${emp.deletedFlag == false ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>'} </td>
+                                      </tr>
+                                  </c:forEach>
+                              </c:when>
+                              <c:otherwise>
+                                  <tr align="center">
+                                      <td colspan="4">No Record available</td>
+                                  </tr>
+                              </c:otherwise>
+                          </c:choose>
                         </tr>
                       </tbody>
                     </table>
+
+                    <c:if test="${data.size() > 0 }">
+                        <!-- Basic Pagination -->
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col">
+                                  <small class="text-light fw-semibold">Total Records : ${totalElements} | Showing Page [${number+1} of ${totalPages}] </small>
+                                  <div class="demo-inline-spacing">
+                                    <!-- Basic Pagination -->
+                                    <nav aria-label="Page navigation">
+                                      <ul class="pagination">
+                                        <li class="page-item first">
+                                          <a style="${(0 == param.pno) ? 'cursor: not-allowed;' : ''}" class="page-link"
+                                          href="view-factories?pno=0&psz=10"
+                                            ><i class="tf-icon bx bx-chevrons-left"></i
+                                          ></a>
+                                        </li>
+                                        <li class="page-item prev">
+                                          <a style="${(0 == param.pno) ? 'cursor: not-allowed;' : ''}" class="page-link"
+                                          href="view-factories?pno=${(totalPages-1)-1}&psz=10"
+                                            ><i class="tf-icon bx bx-chevron-left"></i
+                                          ></a>
+                                        </li>
+                                        <c:forEach begin="0" end="${totalPages-1}" var="page">
+                                              <li class="page-item">
+                                                  <a style="${(page == param.pno) ? 'background-color:#696cff;color:#fff;' : ''}" class="page-link"
+                                                  href="view-factories?pno=${page}&psz=10" class="page-link">${page+1}</a>
+                                              </li>
+                                        </c:forEach>
+                                        <li class="page-item next">
+                                          <a style="${(totalPages-1 == param.pno) ? 'cursor: not-allowed;' : ''}" class="page-link"
+                                          href="view-factories?pno=${totalPages-1}&psz=10"
+                                            ><i class="tf-icon bx bx-chevron-right"></i
+                                          ></a>
+                                        </li>
+                                        <li class="page-item last">
+                                          <a style="${(totalPages-1 == param.pno) ? 'cursor: not-allowed;' : ''}" class="page-link"
+                                          href="view-factories?pno=${totalPages-1}&psz=10"
+                                            ><i class="tf-icon bx bx-chevrons-right"></i
+                                          ></a>
+                                        </li>
+                                      </ul>
+                                    </nav>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--/ Basic Pagination -->
+                        </c:if>
                   </div>
                 </div>
                 <!--/ Striped Rows -->
@@ -305,15 +170,6 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
     <!-- Common JS -->
         <%@ include file="common-js.jsp" %>

@@ -31,6 +31,11 @@ public class Stock {
     @ManyToOne
     @JoinColumn(name = "factoryId")
     private Factory factoryId;
+
+    @ManyToOne
+    @JoinColumn(name = "partyId")
+    private Party partyId;
+
     private String factoryName;
      private String season;
     private String tenderDate;
@@ -40,6 +45,7 @@ public class Stock {
     private Integer purchaseQuantity;
     private Integer soldQuantity = 0;
     private Double rate;
+    private Double millRate;
     private String notes;
     
 	@CreatedBy

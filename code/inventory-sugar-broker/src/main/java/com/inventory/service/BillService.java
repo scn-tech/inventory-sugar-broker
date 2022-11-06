@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.stream.Collectors;
-
 @Service
 public class BillService {
     @Autowired
@@ -22,7 +20,7 @@ public class BillService {
     private StockService stockService;
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public boolean save(Bill bill) {
+    public Bill save(Bill bill) {
         boolean flag = false;
 
         bill = billRepository.save(bill);
@@ -32,8 +30,7 @@ public class BillService {
         }
 
         stockService.updateStockQty(bill.getBillItems().get(0).getStock().getId(), bill.getBillItems().get(0).getBillQuantity());
-        flag = bill.getId()>0;
-        return flag;
+        return bill;
     }
 
 }

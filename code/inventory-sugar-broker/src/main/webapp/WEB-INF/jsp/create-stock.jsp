@@ -3,7 +3,7 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
-<%@page import="java.util.*" import="com.inventory.entity.Factory"%>
+<%@page import="java.util.*" import="com.inventory.entity.*"%>
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr"
 	data-theme="theme-default" data-assets-path="../assets/"
 	data-template="vertical-menu-template-free">
@@ -84,35 +84,62 @@
                                        </div>
                                     </c:if>
 
-										<form method="post" action="/save-stock">
+										<form method="post" action="/save-stock" id="save-stock-form">
 
 
                                             <div class="row mb-3">
-                                                    <label for="seasonSelect" class="col-sm-2 col-form-label">Factory Name</label>
-                                                <div class="col-sm-3">
+                                            <label for="seasonSelect" class="col-sm-2 col-form-label">Factory Name</label>
+                                                <div class="col-sm-8">
                                                     <div class="input-group input-group-merge">
-                                                    <input
-                                                      name="factoryName"
-                                                      class="form-control"
-                                                      list="datalistOptions"
-                                                      id="factoryNameList"
-                                                      placeholder="Type to search..."
-                                                    />
-                                                    <datalist id="datalistOptions">
+                                                        <input
+                                                          name="factoryName"
+                                                          class="form-control"
+                                                          list="datalistOptions"
+                                                          id="factoryNameList"
+                                                          placeholder="Type to search..."
+                                                        />
+                                                        <datalist id="datalistOptions">
 
-                                                        <%
-                                                            List<Factory> factoryList = (List) request.getAttribute("factoryList");
-                                                            for (Factory f : factoryList) {
-                                                        %>
-                                                        <option data-value="<%=f.getId()%>"><%=f.getFactoryName()%></option>
-                                                        <%
-                                                            }
-                                                        %>
-                                                    </datalist>
-                                                    <input id="factoryId" type="hidden" name="factoryId.id"/>
+                                                            <%
+                                                                List<Factory> factoryList = (List) request.getAttribute("factoryList");
+                                                                for (Factory f : factoryList) {
+                                                            %>
+                                                            <option data-value="<%=f.getId()%>"><%=f.getFactoryName()%></option>
+                                                            <%
+                                                                }
+                                                            %>
+                                                        </datalist>
+                                                        <input id="factoryId" type="hidden" name="factoryId.id"/>
+                                                    </div>
+                                                </div>
                                              </div>
-                                             </div>
-                                             </div>
+
+                                             <div class="row mb-3">
+                                               <label for="seasonSelect" class="col-sm-2 col-form-label">Party Name</label>
+                                                   <div class="col-sm-8">
+                                                       <div class="input-group input-group-merge">
+                                                           <input
+                                                             name="partyName"
+                                                             class="form-control"
+                                                             list="partyNameOptions"
+                                                             id="partyNameList"
+                                                             placeholder="Type to search..."
+                                                           />
+                                                           <datalist id="partyNameOptions">
+
+                                                               <%
+                                                                   List<Party> partiesList = (List) request.getAttribute("partiesList");
+                                                                   for (Party p : partiesList) {
+                                                               %>
+                                                               <option data-value="<%=p.getId()%>"><%=p.getPartyName()%></option>
+                                                               <%
+                                                                   }
+                                                               %>
+                                                           </datalist>
+                                                           <input id="partyId" type="hidden" name="partyId.id"/>
+                                                       </div>
+                                                </div>
+                                           </div>
 
 											<div class="row mb-3">
 												<label for="seasonSelect" class="col-sm-2 col-form-label">Season</label>
@@ -202,6 +229,19 @@
 												</div>
 											</div>
 											<div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label"
+                                                    for="basic-icon-default-company">Mill Rate</label>
+                                                <div class="col-sm-3">
+                                                    <div class="input-group input-group-merge">
+
+                                                        <input required name="millRate" type="number"
+                                                            id="basic-icon-default-company" class="form-control"
+                                                            placeholder="Mill Rate" aria-label="MillRate"
+                                                            aria-describedby="basic-icon-default-company2" />
+                                                    </div>
+                                                </div>
+                                            </div>
+											<div class="row mb-3">
 												<label class="col-sm-2 col-form-label"
 													for="basic-icon-default-company">Rate</label>
 												<div class="col-sm-3">
@@ -233,7 +273,7 @@
 
 											<div class="row justify-content-end">
 												<div class="col-sm-10">
-													<button type="submit" class="btn btn-primary">SAVE</button>
+													<button type="submit" class="btn btn-primary" id="save-stock-btn">SAVE</button>
 												</div>
 											</div>
 										</form>
@@ -243,6 +283,28 @@
 						</div>
 					</div>
 					<!-- / Content -->
+
+            <!--Confirmation Box Starts-->
+            <div class="modal fade" id="SaveConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"> Please Confirm </h5>
+                            <button id="SaveConfirmationCloseSymbol" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">x</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                           <h4>Are you sure do you want to save Details?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="SaveConfirmationSaveBtn" class="btn btn-primary"> Yes </button>
+                            <button type="button" id="SaveConfirmationCloseBtn" class="btn btn-secondary" data-dismiss="modal"> No </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Confirmation Box Ends-->
 
 					<!-- Common JS -->
 					<%@ include file="footer.jsp"%>
@@ -274,6 +336,27 @@
 	<!-- / Common JS -->
 
 	<script type="text/javascript">
+        //get Party Id based on Party Name selection
+        document.querySelector('#partyNameList').addEventListener('change', function(e) {
+            var input = e.target,
+                list = input.getAttribute('list'),
+                options = document.querySelectorAll('#' + list + ' option'),
+                hiddenInput = document.getElementById("partyId"),
+                inputValue = input.value;
+
+            hiddenInput.value = inputValue;
+
+            for(var i = 0; i < options.length; i++) {
+                var option = options[i];
+
+                if(option.innerText === inputValue) {
+                    hiddenInput.value = option.getAttribute('data-value');
+                    break;
+                }
+            }
+        });
+
+
 	    document.querySelector('#factoryNameList').addEventListener('change', function(e) {
             var input = e.target,
                 list = input.getAttribute('list'),
@@ -292,6 +375,38 @@
                 }
             }
         });
+
+        // confirmation Box starts
+        var modalConfirm = function(callback) {
+
+            $("#save-stock-btn").on("click", function(e) {
+                e.preventDefault();
+                $("#SaveConfirmation").modal('show');
+            });
+
+            $("#SaveConfirmationSaveBtn").on("click", function() {
+                callback(true);
+                $("#SaveConfirmation").modal('hide');
+            });
+
+            $("#SaveConfirmationCloseBtn").on("click", function() {
+                //callback(false);
+                $("#SaveConfirmation").modal('hide');
+            });
+
+
+            $("#SaveConfirmationCloseSymbol").on("click", function() {
+                //callback(false);
+                $("#SaveConfirmation").modal('hide');
+            });
+        };
+
+        modalConfirm(function(confirm) {
+            if (confirm) {
+                $("#save-stock-form").submit();
+            }
+        });
+        // confirmation Box ends
 	</script>
 
 </body>
