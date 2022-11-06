@@ -63,7 +63,7 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Striped Rows -->
                 <div class="card">
-                  <h5 class="card-header">Factory List</h5>
+                  <h5 class="card-header">Party List</h5>
                   <div class="table-responsive text-nowrap">
                     <table class="table table-striped">
                       <thead>
