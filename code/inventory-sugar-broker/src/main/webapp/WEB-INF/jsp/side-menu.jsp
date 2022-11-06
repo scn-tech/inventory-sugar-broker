@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ page isELIgnored="false" %>
 <!-- Menu -->
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand demo">
@@ -90,7 +94,7 @@
               </a>
             </li>
             <li class="menu-item">
-              <a href="view-factories" class="menu-link">
+              <a href="view-factories?pno=0&psz=10" class="menu-link">
                 <div data-i18n="Without navbar">View Factories</div>
               </a>
             </li>
@@ -98,7 +102,7 @@
         </li>
         <!-- Factory -->
 
-    <!-- Factory -->
+    <!-- Party -->
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -112,13 +116,13 @@
           </a>
         </li>
         <li class="menu-item">
-          <a href="view-parties" class="menu-link">
+          <a href="view-parties?pno=0&psz=10" class="menu-link">
             <div data-i18n="Without navbar">View Parties</div>
           </a>
         </li>
       </ul>
     </li>
-     <!-- Factory -->
+     <!-- Party -->
      <!-- Stock -->
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">

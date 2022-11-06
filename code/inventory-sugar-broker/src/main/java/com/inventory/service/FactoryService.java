@@ -5,9 +5,13 @@ import com.inventory.entity.Factory;
 import com.inventory.repository.FactoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 @Slf4j 
@@ -22,10 +26,16 @@ public class FactoryService {
 	}
 
 	public List<Factory>  getListOfFactory(){
-		return factoryRepository.findAll();
+		return StreamSupport
+				.stream(factoryRepository.findAll().spliterator(), false)
+				.collect(Collectors.toList());
 	}
 
 	public List<Factory> getByFlag(boolean flag) {
 		return factoryRepository.findByDeletedFlag(flag);
+	}
+
+	public Page<Factory> getAllFactoryByPageable(Pageable paging) {
+		return factoryRepository.findAll(paging);
 	}
 }
